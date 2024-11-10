@@ -6,6 +6,7 @@ import 'package:instagram_flutter/responsive/web_screen_layout.dart';
 import 'package:instagram_flutter/utils/colors.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
