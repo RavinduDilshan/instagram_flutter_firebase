@@ -29,6 +29,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
+	
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
@@ -45,5 +46,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>need to pick photos for profile pic</string>
+	<key>NSCameraUsageDescription</key>
+	<string>need to take photos for profile pic</string>
+	
+	<key>NSMicrophoneUsageDescription</key>
+	<string>need to take videos for profile pic</string>
 </dict>
 </plist>
