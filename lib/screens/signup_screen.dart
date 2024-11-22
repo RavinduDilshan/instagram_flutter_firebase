@@ -53,7 +53,7 @@ class _SignupScreenState extends State<SignupScreen> {
       //show snack bar
       showSnackBar(res, context);
     } else {
-      Navigator.of(context).push(MaterialPageRoute(
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ResponsiveLayout(
               webScreenLayout: WebScreenLayout(),
               mobileScreenLayout: MobileScreenLayout())));
