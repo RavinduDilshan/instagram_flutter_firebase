@@ -20,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _bioController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   Uint8List? _image;
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -31,16 +32,22 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   _signupUser() async {
+    setState(() {
+      _isLoading = true;
+    });
     String res = await AuthMethods().signUpUser(
         email: _emailController.text,
         password: _passwordController.text,
         username: _usernameController.text,
         bio: _bioController.text,
         file: _image!);
+    setState(() {
+      _isLoading = false;
+    });
 
     if (res != 'success') {
       //show snack bar
-      showSnackBar('res', context);
+      showSnackBar(res, context);
     }
   }
 
@@ -126,16 +133,19 @@ class _SignupScreenState extends State<SignupScreen> {
             //button login
             InkWell(
               onTap: () => _signupUser(),
-              child: Container(
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(4))),
-                    color: blueColor),
-                child: const Text('Sign up'),
-              ),
+              child: _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : Container(
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: const ShapeDecoration(
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(4))),
+                          color: blueColor),
+                      child: const Text('Sign up'),
+                    ),
             ),
             const SizedBox(height: 12),
             Flexible(
