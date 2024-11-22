@@ -30,6 +30,20 @@ class _SignupScreenState extends State<SignupScreen> {
     super.dispose();
   }
 
+  _signupUser() async {
+    String res = await AuthMethods().signUpUser(
+        email: _emailController.text,
+        password: _passwordController.text,
+        username: _usernameController.text,
+        bio: _bioController.text,
+        file: _image!);
+
+    if (res != 'success') {
+      //show snack bar
+      showSnackBar('res', context);
+    }
+  }
+
   void _selectImage() async {
     _image = await pickImage(ImageSource.gallery);
     setState(() {});
@@ -111,16 +125,7 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 24),
             //button login
             InkWell(
-              onTap: () async {
-                String res = await AuthMethods().signUpUser(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                    username: _usernameController.text,
-                    bio: _bioController.text,
-                    file: _image!);
-
-                print(res);
-              },
+              onTap: () => _signupUser(),
               child: Container(
                 width: double.infinity,
                 alignment: Alignment.center,
