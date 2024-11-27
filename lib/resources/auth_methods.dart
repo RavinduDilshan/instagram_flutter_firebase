@@ -14,6 +14,8 @@ class AuthMethods {
     User user = _auth.currentUser!;
     DocumentSnapshot snap =
         await _firestore.collection('users').doc(user.uid).get();
+
+    return modelUser.User.fromSnap(snap);
   }
 
   //sign up user
