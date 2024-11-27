@@ -30,8 +30,8 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('this is mobile')),
+    return Scaffold(
+      body: Center(child: Text(username)),
     );
   }
 }
