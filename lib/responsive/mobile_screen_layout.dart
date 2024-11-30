@@ -15,12 +15,47 @@ class MobileScreenLayout extends StatefulWidget {
 }
 
 class _MobileScreenLayoutState extends State<MobileScreenLayout> {
-  final int _page = 0;
+  int _page = 0;
+  late PageController pageController;
+
+  @override
+  void initState() {
+    pageController = PageController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  _navigationTapped(int page) {
+    pageController.jumpToPage(page);
+  }
+
+  _onPageChanged(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     userModel.User user = Provider.of<UserProvider>(context).getUser;
     return Scaffold(
-      body: Center(child: Text(user.username)),
+      body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: pageController,
+        onPageChanged: _onPageChanged,
+        children: const [
+          Text('feed'),
+          Text('search'),
+          Text('add post'),
+          Text('notifications'),
+          Text('profile')
+        ],
+      ),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: mobileBackgroundColor,
         items: [
@@ -52,6 +87,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
               label: '',
               backgroundColor: primaryColor)
         ],
+        onTap: _navigationTapped,
       ),
     );
   }
