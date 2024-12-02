@@ -33,6 +33,17 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     _file = file;
                   });
                 },
+              ),
+              SimpleDialogOption(
+                padding: const EdgeInsets.all(20),
+                child: const Text('choose from galary'),
+                onPressed: () async {
+                  Navigator.of(context).pop();
+                  Uint8List file = await pickImage(ImageSource.gallery);
+                  setState(() {
+                    _file = file;
+                  });
+                },
               )
             ],
           );
