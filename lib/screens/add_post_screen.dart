@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
@@ -10,6 +11,8 @@ class AddPostScreen extends StatefulWidget {
 class _AddPostScreenState extends State<AddPostScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: IconButton(onPressed: () {}, icon: const Icon(Icons.upload)),
+    );
   }
 }
