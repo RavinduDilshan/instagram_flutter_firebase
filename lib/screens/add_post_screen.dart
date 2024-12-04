@@ -20,6 +20,7 @@ class AddPostScreen extends StatefulWidget {
 class _AddPostScreenState extends State<AddPostScreen> {
   Uint8List? _file;
   final TextEditingController _descriptionController = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -70,8 +71,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
 
   _postImage(String uid, String username, String profImage) async {
     try {
+      setState(() {
+        _isLoading = true;
+      });
       String res = await FireStoreMethods().uploadPost(
           _descriptionController.text, _file!, uid, username, profImage);
+      setState(() {
+        _isLoading = false;
+      });
       if (res == 'success') {
         showSnackBar('post upload success', context);
       } else {
@@ -111,6 +118,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
             ),
             body: Column(
               children: [
+                _isLoading ? const LinearProgressIndicator() : Container(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
