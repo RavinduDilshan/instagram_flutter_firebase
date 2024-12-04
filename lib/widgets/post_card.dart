@@ -15,6 +15,7 @@ class PostCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16)
                 .copyWith(right: 0),
+            //header section
             child: Row(
               children: [
                 const CircleAvatar(
@@ -64,6 +65,15 @@ class PostCard extends StatelessWidget {
                     icon: const Icon(Icons.more_vert))
               ],
             ),
+          ),
+
+          //image section
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
+            width: double.infinity,
+            child: Image.network(
+                'https://images.unsplash.com/photo-1720048169707-a32d6dfca0b3?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                fit: BoxFit.cover),
           )
         ],
       ),
