@@ -81,12 +81,19 @@ class _AddPostScreenState extends State<AddPostScreen> {
       });
       if (res == 'success') {
         showSnackBar('post upload success', context);
+        _clearImage();
       } else {
         showSnackBar(res, context);
       }
     } catch (err) {
       showSnackBar(err.toString(), context);
     }
+  }
+
+  _clearImage() {
+    setState(() {
+      _file = null;
+    });
   }
 
   @override
