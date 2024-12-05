@@ -144,7 +144,14 @@ class PostCard extends StatelessWidget {
                       style: TextStyle(fontSize: 16, color: secondaryColor),
                     ),
                   ),
-                )
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: const Text(
+                    '22/12/2024',
+                    style: TextStyle(fontSize: 16, color: secondaryColor),
+                  ),
+                ),
               ],
             ),
           )
