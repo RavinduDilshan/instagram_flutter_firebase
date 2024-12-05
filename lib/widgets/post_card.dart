@@ -104,6 +104,56 @@ class PostCard extends StatelessWidget {
                     onPressed: () {}, icon: const Icon(Icons.bookmark_border)),
               ))
             ],
+          ),
+
+          //description and number of comments
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '1231 likes',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(top: 8),
+                  child: RichText(
+                      text: const TextSpan(
+                          style: TextStyle(color: primaryColor),
+                          children: [
+                        TextSpan(
+                            text: 'username',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(
+                          text: 'hey this is some description to be replaced',
+                        )
+                      ])),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: const Text(
+                      'view all 200 comments',
+                      style: TextStyle(fontSize: 16, color: secondaryColor),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: const Text(
+                    '22/12/2024',
+                    style: TextStyle(fontSize: 16, color: secondaryColor),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
