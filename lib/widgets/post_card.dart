@@ -134,6 +134,16 @@ class PostCard extends StatelessWidget {
                           text: 'hey this is some description to be replaced',
                         )
                       ])),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: const Text(
+                      'view all 200 comments',
+                      style: TextStyle(fontSize: 16, color: secondaryColor),
+                    ),
+                  ),
                 )
               ],
             ),
