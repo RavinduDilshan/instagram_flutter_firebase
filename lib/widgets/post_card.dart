@@ -122,14 +122,15 @@ class PostCard extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.only(top: 8),
                   child: RichText(
-                      text: const TextSpan(
-                          style: TextStyle(color: primaryColor),
+                      text: TextSpan(
+                          style: const TextStyle(color: primaryColor),
                           children: [
                         TextSpan(
-                            text: 'username',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
+                            text: snap['username'],
+                            style:
+                                const TextStyle(fontWeight: FontWeight.bold)),
                         TextSpan(
-                          text: 'hey this is some description to be replaced',
+                          text: snap['description'],
                         )
                       ])),
                 ),
