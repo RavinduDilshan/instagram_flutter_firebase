@@ -112,7 +112,7 @@ class PostCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '1231 likes',
+                  '${snap['likes'].length.toString()} likes',
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
