@@ -85,7 +85,7 @@ class _PostCardState extends State<PostCard> {
                 isLikeAnimating = true;
               });
             },
-            child: Stack(children: [
+            child: Stack(alignment: Alignment.center, children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.35,
                 width: double.infinity,
