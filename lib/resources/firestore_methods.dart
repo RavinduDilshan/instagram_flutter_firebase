@@ -22,7 +22,7 @@ class FireStoreMethods {
           description: description,
           uid: uid,
           username: username,
-          postId: '',
+          postId: postId,
           datePublished: DateTime.now(),
           postUrl: photoUrl,
           profImage: profImage,
