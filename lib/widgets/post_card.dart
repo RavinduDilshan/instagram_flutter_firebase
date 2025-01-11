@@ -91,18 +91,22 @@ class _PostCardState extends State<PostCard> {
                 width: double.infinity,
                 child: Image.network(widget.snap['postUrl'], fit: BoxFit.cover),
               ),
-              LikeAnimation(
-                isAnimating: isLikeAnimating,
-                onEnd: () {
-                  setState(() {
-                    isLikeAnimating = true;
-                  });
-                },
-                duration: const Duration(milliseconds: 400),
-                child: const Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                  size: 120,
+              AnimatedOpacity(
+                duration: const Duration(milliseconds: 200),
+                opacity: isLikeAnimating ? 1 : 0,
+                child: LikeAnimation(
+                  isAnimating: isLikeAnimating,
+                  onEnd: () {
+                    setState(() {
+                      isLikeAnimating = false;
+                    });
+                  },
+                  duration: const Duration(milliseconds: 400),
+                  child: const Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                    size: 120,
+                  ),
                 ),
               )
             ]),
